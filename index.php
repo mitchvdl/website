@@ -33,11 +33,21 @@ switch ( $file )
         echo $templates->render('modules::' . $file);
         break;
 
-    default:
+    case 'cv' :
 
+        switch ( (isset($parts[1]) ? strtolower($parts[1]) : 'home') ) {
+            case 'work-experience':
+                echo $templates->render('body::cv/workexperience');
+                break;
+            default:
+                echo $templates->render('body::cv');
+                break;
+        }
+        break;
+    default:
+        echo $templates->render('body::home');
         break;
 }
-
 
 
 
