@@ -6,5 +6,24 @@
     <li>Disable compiling code</li>
     <li>Extract the contents of the folder inside your Magento root</li>
     <li>Flush CONFIG cache</li>
-    <li>Set a version under System > Configuratin > ADVANCED > Developer > Merge CSS/JS</li>
+    <li>Open Ekomi Product integration configuration and modify to your needs</li>
+    <li>Change the rating default values to your needs</li>
+    <li>Ekomi Product reviews are store specific, in case this cron needs to be scheduled, additional cron-tab configuration needs to be added in the config.xml (custom module)<br />
+        Modify the cron_expr and set the correct store_code in the nodes<br />
+   <pre><code>
+    &lt;config&gt;
+    &lt;crontab&gt;
+        &lt;jobs&gt;
+            &lt;katai_ekomi_review_default&gt;
+                &lt;schedule&gt;
+                    &lt;cron_expr&gt;30 5 * * *&lt;/cron_expr&gt;
+                &lt;/schedule&gt;
+                &lt;run&gt;
+                    &lt;model&gt;katai_ekomi/cron_ekomi_review::run&lt;/model&gt;
+                &lt;/run&gt;
+                &lt;store_code&gt;default&lt;/store_code&gt;
+            &lt;/katai_ekomi_review_default&gt;
+        &lt;/jobs&gt;
+    &lt;/crontab&gt;
+&lt;/config&gt;</code></pre></li>
 </ol>
