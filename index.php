@@ -27,6 +27,7 @@ echo $templates->render('gems::body_start');
 
 switch ( (isset($parts[0]) ? $parts[0] : 'home') )
 {
+    ## Modules ...
     case 'katai-css-js-merge-version':
         echo $templates->render('modules::' . $file);
     break;
@@ -35,6 +36,13 @@ switch ( (isset($parts[0]) ? $parts[0] : 'home') )
         echo $templates->render('modules::' . $file);
         break;
 
+    case 'katai-belgium-local-in-checkout':
+        echo $templates->render('modules::' . $file);
+        break;
+
+
+
+    ## others
     case 'cv' :
         switch ( (isset($parts[1]) ? $parts[1] : 'home') ) {
             case 'work-experience':
@@ -44,6 +52,9 @@ switch ( (isset($parts[0]) ? $parts[0] : 'home') )
                 echo $templates->render('body::cv');
                 break;
         }
+        break;
+    case 'contact-us':
+        echo $templates->render('body::' . $file);
         break;
     default:
         echo $templates->render('body::home');
