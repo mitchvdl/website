@@ -40,6 +40,10 @@ switch ( (isset($parts[0]) ? $parts[0] : 'home') )
         echo $templates->render('modules::' . $file);
         break;
 
+    case 'katai-geolocatecheckout':
+        echo $templates->render('modules::' . $file);
+        break;
+
 
 
     ## others
